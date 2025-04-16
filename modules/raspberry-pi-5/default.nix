@@ -9,7 +9,7 @@
     firmwarePackage = lib.mkDefault self.packages.${pkgs.hostPlatform.system}.raspberrypifw;
   };
 
-  boot.kernelPackages = lib.mkDefault self.packages.${pkgs.hostPlatform.system}.linuxPackages_rpi5;
+  boot.kernelPackages = lib.mkForce self.packages.${pkgs.hostPlatform.system}.linuxPackages_rpi5;
   boot.initrd.availableKernelModules = [
     "nvme"  # nvme drive connected with pcie
   ];

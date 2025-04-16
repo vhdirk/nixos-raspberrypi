@@ -4,6 +4,17 @@ self: super: { # final: prev:
   # pkgs/os-specific/linux/firmware/raspberrypi/default.nix
   # https://github.com/raspberrypi/firmware/commits/stable/
 
+  raspberrypifw_20250326 = super.raspberrypifw.overrideAttrs (old: rec {
+    # https://github.com/raspberrypi/firmware/releases/tag/1.20250326
+    version = "1.20250326";
+    src = super.fetchFromGitHub {
+      owner = "raspberrypi";
+      repo = "firmware";
+      rev = "${version}";
+      hash = "sha256-o198RfJe2UUEjtEJnAVMrEG5bQkZca1nzsaUKOKVAQo=";
+    };
+  });
+
   raspberrypifw_20250127 = super.raspberrypifw.overrideAttrs (old: rec {
     # https://github.com/raspberrypi/firmware/releases/tag/1.20250127
     version = "1.20250127";
@@ -71,7 +82,7 @@ self: super: { # final: prev:
     };
   });
 
-    raspberrypiWirelessFirmware_20241223 = super.raspberrypiWirelessFirmware.overrideAttrs (old: {
+  raspberrypiWirelessFirmware_20241223 = super.raspberrypiWirelessFirmware.overrideAttrs (old: {
     version = "2024-12-23";
     srcs = [
       # https://github.com/RPi-Distro/bluez-firmware/commits/bookworm

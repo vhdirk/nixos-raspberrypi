@@ -2,8 +2,8 @@
 
 let
   # NOTE: raspberrypifw & raspberryPiWirelessFirmware should be updated with this
-  modDirVersion = "6.6.28";
-  tag = "stable_20240423";
+  modDirVersion = "6.12.22";
+  tag = "rpi-6.12.y";
 in
 lib.overrideDerivation (buildLinux (args // rec {
   version = "${modDirVersion}-${tag}";
