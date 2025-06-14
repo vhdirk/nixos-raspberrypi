@@ -2,10 +2,7 @@
 , firmwareBuilder
 }:
 
-pkgs.substituteAll {
-  src = ./kernelboot-builder.sh;
-  isExecutable = true;
-
+pkgs.replaceVars ./kernelboot-builder.sh {
   inherit (pkgs) bash;
   path = [ pkgs.coreutils pkgs.gnused ];
 
